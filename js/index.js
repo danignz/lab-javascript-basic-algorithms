@@ -79,3 +79,25 @@ for (let i = 0; i < threeLoremParagraphs.length ; i++){
 numberOfWords += numParagraphs; // For each paragraphs, add to the counter an additional word that correspons to the firt word of a paragraph
 console.log(numberOfWords);
 console.log(`The number of times the Latin word et appears its ${numberOfEt}`);
+
+
+//Bonus 2:
+//Create a new variable phraseToCheck and have it contain some string value. Write a code that will check if the value we assigned to this variable is a Palindrome. Here are some examples of palindromes:
+
+const phraseToCheck = "A man, a plan, a canal, Panama!" ;
+
+function checkIsPalindrome(word){
+  
+  // normalize the word
+  let normalizeWord = word.toLowerCase().replace(/\s/g, '').replace(/,/g, '').replace(/!/g, '');
+  
+  for (let i = 0; i < normalizeWord.length ; i++){
+
+      if( normalizeWord[i] !== normalizeWord[normalizeWord.length - 1 - i] ){
+        return false;
+      }
+  }
+  return true;
+}
+
+console.log(checkIsPalindrome(phraseToCheck));
