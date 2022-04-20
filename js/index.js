@@ -88,10 +88,11 @@ const phraseToCheck = "A man, a plan, a canal, Panama!" ;
 
 function checkIsPalindrome(word){
   
-  // normalize the word
-  let normalizeWord = word.toLowerCase().replace(/\s/g, '').replace(/,/g, '').replace(/!/g, '');
-  
-  for (let i = 0; i < normalizeWord.length ; i++){
+  // normalize the word. [^A-Za-z0-9] === [\W] => \W removes all non-alphanumeric characters.
+  let normalizeWord = word.toLowerCase().replace(/[\W]/g, '');
+  let middleOfWord = Math.floor(normalizeWord.length/2); //If odd char word, we don't need to check the char of the middle, it's irrelevant to form a palindrome. (Math.floor)
+
+  for (let i = 0; i < middleOfWord; i++){
 
       if( normalizeWord[i] !== normalizeWord[normalizeWord.length - 1 - i] ){
         return false;
